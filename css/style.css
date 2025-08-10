@@ -1,178 +1,67 @@
-:root{
-  --black: #000000;
-  --maroon-dark: #560000;
-  --maroon-mid:  #7b0000;
-  --maroon-light:#b00000;
-  --content-bg: rgba(0,0,0,0.62);
-  --text: #ffffff;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url('../images/flag.jfif') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
-/* Page base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--black);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  position:relative;
-  overflow-x:hidden;
+/* Transparent overlay to make text readable */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
-/* --------- Decorative Flag Background (behind site) ---------- */
-.flag-bg{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none; /* so background doesn't intercept clicks */
+header, main, footer {
+    position: relative;
+    z-index: 1;
 }
 
-/* centered red rectangle (flag field) */
-.flag-rect{
-  position:absolute;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  width:70vw;
-  max-width:1100px;
-  height:44vh;
-  min-height:240px;
-  border-radius:8px;
-  /* faded/multi-stop maroon to simulate fabric shading */
-  background: linear-gradient(180deg,
-              rgba(184,10,10,0.98) 0%,
-              rgba(123,0,0,0.98) 45%,
-              rgba(88,0,0,0.95) 100%);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.75),           /* outer darkness */
-    inset 0 30px 60px rgba(255,255,255,0.02);/* subtle sheen */
-  overflow:visible;
+header {
+    text-align: center;
+    padding: 20px;
 }
 
-/* soft fade to black around rectangle edges */
-.flag-rect::before{
-  content:"";
-  position:absolute;
-  inset:-26px;
-  border-radius:12px;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.72) 100%);
-  z-index:-1;
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-/* --------- Sun (left) ---------- */
-.sun{
-  position:absolute;
-  left:6%;
-  top:50%;
-  transform:translateY(-50%);
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #ffffff 56%, rgba(255,255,255,0.95) 60%);
-  box-shadow:
-    0 0 40px rgba(255,255,255,0.9),
-    0 0 90px rgba(255,200,60,0.12),
-    inset 0 4px 12px rgba(255,255,255,0.12);
-  z-index:1;
-  filter: drop-shadow(0 6px 22px rgba(255,200,60,0.05));
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* --------- Crescent moon (right) ---------- */
-.moon{
-  position:absolute;
-  right:6%;
-  top:50%;
-  transform:translateY(-50%);
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  background: #ffffff;
-  box-shadow: 0 0 30px rgba(255,255,255,0.8);
-  z-index:1;
-  overflow:visible;
+nav a:hover {
+    text-decoration: underline;
 }
 
-/* cut-out overlay to create a crescent shape (use maroon-dark to match flag) */
-.moon::after{
-  content:"";
-  position:absolute;
-  left:34px;            /* move overlay rightwards so crescent opens left */
-  top:8px;
-  width:76px;
-  height:76px;
-  border-radius:50%;
-  background: var(--maroon-dark);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4) inset;
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
-/* --------- Site content (above background) ---------- */
-.site{ position:relative; z-index:2; min-height:100vh; display:flex; flex-direction:column; }
-
-/* Header */
-.site-header{
-  padding:22px 18px;
-  text-align:center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0.36));
-  backdrop-filter: blur(4px);
-}
-.site-header h1{ margin:0; font-size:1.9rem; letter-spacing:0.6px; }
-
-/* Nav */
-.main-nav{ margin-top:12px; }
-.main-nav a{
-  color:var(--text);
-  text-decoration:none;
-  margin:0 10px;
-  font-weight:600;
-  font-size:0.95rem;
-  padding:6px 8px;
-  border-radius:6px;
-}
-.main-nav a:hover{ background: rgba(255,255,255,0.06); }
-
-/* Main container */
-.container{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 20px;
-}
-.intro{
-  max-width:880px;
-  background: var(--content-bg);
-  padding:28px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-}
-.intro h2{ margin-top:0; font-size:1.6rem; }
-.intro p{ line-height:1.65; color: #f2f2f2; }
-
-/* Footer */
-.site-footer{
-  text-align:center;
-  padding:14px 12px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.36), rgba(0,0,0,0.6));
-  font-size:0.92rem;
+.intro h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-/* ---------- Responsive tweaks ---------- */
-@media (max-width:900px){
-  .flag-rect{ width:86vw; height:36vh; }
-  .sun{ width:96px; height:96px; left:5%; }
-  .moon{ width:86px; height:86px; right:5%; }
-  .moon::after{ left:28px; top:6px; width:56px; height:56px; }
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-@media (max-width:480px){
-  .flag-rect{ height:30vh; }
-  .sun{ width:72px; height:72px; left:6%; }
-  .moon{ width:64px; height:64px; right:6%; }
-  .moon::after{ left:22px; top:6px; width:44px; height:44px; }
-  .intro{ padding:18px; }
-  .site-header h1{ font-size:1.3rem; }
-  .main-nav a{ font-size:0.85rem; margin:0 6px; }
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6);
 }
