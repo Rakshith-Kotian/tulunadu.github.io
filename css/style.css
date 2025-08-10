@@ -1,0 +1,58 @@
+/* Sun & Moon background gradient */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom right, #ffcc33, #3b3b98);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.intro h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
