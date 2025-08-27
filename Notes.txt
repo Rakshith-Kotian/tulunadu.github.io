@@ -240,3 +240,5 @@ npm run deploy
 ---
 
 
+When hosting in github pages, ,make sure to select gh-pages branch , /dist files will be moved there for deployment each time, whenever npm run deploy is ran , dist files will be updated after build 
+
