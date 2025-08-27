@@ -1,3 +1,5 @@
+Add "homepage": "https://rakshith-kotian.github.io/tulunadu.github.io/", to packege.json file if deployment is not proper
+
 ---
 
 # React Project Notes (for Tulu Nadu Website)
