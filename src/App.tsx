@@ -15,6 +15,7 @@ function App() {
       <Navbar />
       <div style={{ padding: "1rem" }}>
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/language" element={<Language />} />
           <Route path="/culture" element={<Culture />} />
