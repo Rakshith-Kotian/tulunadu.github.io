@@ -11,19 +11,21 @@ import About from "./pages/About"
 function App() {
   return (
     <Router>
-      <Header />
-      <Navbar />
-      <div style={{ padding: "1rem" }}>
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/language" element={<Language />} />
-          <Route path="/culture" element={<Culture />} />
-          <Route path="/cuisine" element={<Cuisine />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Header />
+        <Navbar />
+        <div className="main-content" style={{ flex: 1, padding: "0" }}>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/language" element={<Language />} />
+            <Route path="/culture" element={<Culture />} />
+            <Route path="/cuisine" element={<Cuisine />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </Router>
   )
 }

@@ -1,7 +1,40 @@
 .footer {
-  background-color: #222;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 2rem;
+  margin-top: auto;
   text-align: center;
+  border-top: 3px solid #667eea;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
 }
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.footer a {
+  color: #ffa500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  color: #ffb84d;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+  }
+
+  .footer p {
+    font-size: 0.85rem;
+  }
+}
+
